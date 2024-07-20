@@ -1,0 +1,373 @@
+.pizzas{
+    background-color: whitesmoke;
+}
+body {
+    background-image: url(widgets.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 1em;
+    padding: 1em;
+}
+.featured-pizzas{
+    background-image: url(widgets.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.order {
+    background-image: url(7.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+button {
+    background-color: blueviolet;
+    text-decoration-color: white;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover{
+    background-color: orangered;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid purple;
+}
+
+th {
+    background-color: orangered;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+h1{
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    background-color: #ccc;
+}
+input[type="number"] {
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #FF4500;
+}
+
+.one {
+    background-color: orangered;
+    padding: 10px;
+    margin: 10px;
+}
+
+.two {
+    background-color: yellow;
+    padding: 10px;
+    margin: 10px;
+}
+
+.three {
+    background-color: pink;
+    padding: 10px;
+    margin: 10px;
+}
+
+@media (max-width: 960px) {
+    .pizzz {
+        display: block;
+
+    }
+
+    .pizzz {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .pizzz img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.title {
+    font-size: 2em;
+    color: rebeccapurple;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #000;
+}
+ul {
+    list-style-type: none;
+  }
+
+
+.checkout {
+    margin-bottom: 20px;
+    background-color: green;
+    padding: 10px;
+    border-radius: 10px;
+}
+.menu {
+    margin-bottom: 20px;
+    background-image: url(7.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    border-radius: 10px;
+}
+.cart {
+    margin-bottom: 20px;
+    background-image: url(wall.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    text-align: center;
+}
+.pizzas{
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: left;
+    margin: 1em;
+    padding: 1em;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.f{
+    text-align: center;
+    margin: 10px;
+    padding: 1em;
+    border: 10px;
+    background-color: antiquewhite;
+}
+
+.title {
+    font-size: 2em;
+    color: rebeccapurple;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #000;
+}
+
+
+.checkout {
+    margin-bottom: 20px;
+    background-color: green;
+    padding: 10px;
+    border-radius: 10px;
+}
+.menu {
+    margin-bottom: 20px;
+    background-image: url(7.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    border-radius: 10px;
+}
+.cart {
+    margin-bottom: 20px;
+    background-image: url(wall.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    border-radius: 10px;
+}
+.pizza {
+    display: inline-block;
+    background-image: url(wall.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.pizza h2 {
+    margin: 10px 0;
+}
+
+.pizza img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+
+input[type="number"] {
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #FF4500;
+}
+
+@media (max-width: 960px) {
+    .pizzas {
+        display: block;
+
+    }
+
+    .pizzas {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .pizzas img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.pizzz {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-image: url(wall.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+
+}
+
+.block {
+    border: 1px solid;
+    padding: 1em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    background-color: beige;
+
+}
+
+.pizzz {
+    border: 1px solid #dd0fc2;
+    padding: 1em;
+    margin: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 1em;
+
+}
+
+/*table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        text-align: left;
+        font-weight: bold;
+    }
+}*/
+
+.featured-pizzas, .orders {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.pizza, .order {
+    width: 100%;
+    max-width: 300px;
+}
+
+.pizza img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .pizza, .order {
+        width: 100%;
+        max-width: none;
+    }
+}
+@media (max-width: 600px) {
+    .login input, .login button {
+        width: 100%;
+    }
+
+    .cart, .orders, .featured-pizzas {
+        padding: 0 10px;
+    }
+
+    .pizza {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+
+                       
