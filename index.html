@@ -57,10 +57,11 @@
                     </tbody>
                 </table>
                 <p>Total cost: R <span x-text="cartTotal"></span></p>
-                <button @click="toggleCheckout">Checkout</button>
+                <button x-show="!isCartEmpty" @click="toggleCheckout">Checkout</button>
                 <div x-show="showCheckout" style="margin-top: 20px;">
                     <div>
-                        <input type="number" id="paymentAmount" placeholder="Enter amount" x-model.number="paymentAmount">
+                        <input type="number" id="paymentAmount" placeholder="Enter amount"
+                            x-model.number="paymentAmount">
                     </div>
                     <button @click="payForCart">Pay</button>
                     <div class="message" x-text="message"></div>
@@ -69,9 +70,11 @@
         </div>
 
 
-        <div class="f"><h3>Featured Pizzas</h3></div>
+        <div class="f">
+            <h3>Featured Pizzas</h3>
+        </div>
         <div class="featured-pizzas">
-            
+
             <template x-for="pizza in featuredPizzas">
                 <div class="pizza">
                     <img src="download.jpeg" alt="Pizza" width="150">
@@ -84,7 +87,7 @@
         </div>
 
         <div class="orders">
-            <button @click="toggleOrders">Show Orders</button>
+            <button @click="toggleOrders">Historical Orders</button>
             <div x-show="showOrders">
                 <h3>Historical Orders</h3>
                 <template x-for="order in historicalOrders">
@@ -95,7 +98,8 @@
                         <h4>Pizzas:</h4>
                         <ul>
                             <template x-for="pizza in order.pizzas">
-                                <li><span x-text="pizza.flavour"></span> - <span x-text="pizza.size"></span> - R <span x-text="pizza.price"></span></li>
+                                <li><span x-text="pizza.flavour"></span> - <span x-text="pizza.size"></span> - R <span
+                                        x-text="pizza.price"></span></li>
                             </template>
                         </ul>
                     </div>
@@ -132,5 +136,3 @@
 </body>
 
 </html>
-
-
