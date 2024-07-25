@@ -25,11 +25,9 @@
             <div>Cart Code: <span x-text="cartId"></span></div>
         </div>
 
-
-        <template x-for="pizza in cartPizzas">
+        <div x-show="!isCartEmpty">
             <div class="cart">
                 <h3>Shopping Cart</h3>
-
                 <div class="mycart">
                     <table>
                         <thead>
@@ -43,18 +41,19 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                            <tr>
-                                <td x-text="pizza.flavour"></td>
-                                <td x-text="pizza.size"></td>
-                                <td x-text="pizza.price"></td>
-                                <td x-text="pizza.quantity"></td>
-                                <td x-text="(pizza.price * pizza.quantity).toFixed(2)"></td>
-                                <td>
-                                    <button class="btn" @click="addPizzaToCart(pizza.id)">+</button>
-                                    <button class="btn" @click="removePizzaFromCart(pizza.id)">-</button>
-                                </td>
-                            </tr>
+                            <template x-for="pizza in cartPizzas">
+                                <tr>
+                                    <td x-text="pizza.flavour"></td>
+                                    <td x-text="pizza.size"></td>
+                                    <td x-text="pizza.price"></td>
+                                    <td x-text="pizza.quantity"></td>
+                                    <td x-text="(pizza.price * pizza.quantity).toFixed(2)"></td>
+                                    <td>
+                                        <button class="btn" @click="addPizzaToCart(pizza.id)">+</button>
+                                        <button class="btn" @click="removePizzaFromCart(pizza.id)">-</button>
+                                    </td>
+                                </tr>
+                            </template>
                         </tbody>
                     </table>
                     <div>
@@ -69,15 +68,16 @@
                             <div class="message" x-text="message"></div>
                         </div>
                     </div>
-        </template>
-
-    </div>
-    </div>
-
-    <div x-show="isLoggedIn">
-        <div class="f">
-            <h3>Featured Pizzas</h3>
+                </div>
+            </div>
         </div>
+
+        <div class="add-featured">
+            <h3>Featured Pizzas</h3>
+            <input type="text" placeholder="Enter pizza ID" x-model="featuredPizzaId">
+            <button @click="addFeaturedPizza">Add Featured Pizza</button>
+        </div>
+
         <div class="featured-pizzas">
             <template x-for="pizza in featuredPizzas">
                 <div class="pizza">
@@ -102,42 +102,45 @@
                         <h4>Pizzas:</h4>
                         <ul>
                             <template x-for="pizza in order.pizzas">
-                                <li><span x-text="pizza.flavour"></span> - <span x-text="pizza.size"></span> - R <span
-                                        x-text="pizza.price"></span></li>
+                                <li>
+                                    <span x-text="pizza.flavour"></span> -
+                                    <span x-text="pizza.size"></span> -
+                                    R <span x-text="pizza.price"></span> -
+                                    Quantity: <span x-text="pizza.quantity"></span>
+                                </li>
                             </template>
                         </ul>
                     </div>
                 </template>
             </div>
         </div>
-    </div>
-    </div>
 
-    <h1 x-show="isLoggedIn" x-text="title"></h1>
-    <table x-show="isLoggedIn">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Flavour</th>
-                <th>ID</th>
-                <th>Size</th>
-                <th>Price in Rands(R)</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <template x-for="pizza in pizzas">
+
+        <h1 x-show="isLoggedIn" x-text="title"></h1>
+        <table x-show="isLoggedIn">
+            <thead>
                 <tr>
-                    <td><img src="pizza (1).png" alt="Small Pizza" width="150"></td>
-                    <td x-text="pizza.flavour"></td>
-                    <td x-text="pizza.id"></td>
-                    <td x-text="pizza.size"></td>
-                    <td x-text="pizza.price"></td>
-                    <td><button class="btn" @click="addPizzaToCart(pizza.id)">Buy</button></td>
+                    <th>Image</th>
+                    <th>Flavour</th>
+                    <th>ID</th>
+                    <th>Size</th>
+                    <th>Price in Rands(R)</th>
+                    <th>Action</th>
                 </tr>
-            </template>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <template x-for="pizza in pizzas">
+                    <tr>
+                        <td><img src="pizza (1).png" alt="Small Pizza" width="150"></td>
+                        <td x-text="pizza.flavour"></td>
+                        <td x-text="pizza.id"></td>
+                        <td x-text="pizza.size"></td>
+                        <td x-text="pizza.price"></td>
+                        <td><button class="btn" @click="addPizzaToCart(pizza.id)">Buy</button></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
 </body>
 
 </html>

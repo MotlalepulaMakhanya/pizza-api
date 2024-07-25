@@ -19,6 +19,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.h22{
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: #000;
+    background-color: beige;
+}
 button {
     background-color: blueviolet;
     text-decoration-color: white;

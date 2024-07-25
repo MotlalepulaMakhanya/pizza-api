@@ -3,6 +3,7 @@ document.addEventListener('alpine:init', () => {
       title: 'Pizza Cart API',
       pizzas: [],
       featuredPizzas: [],
+      featuredPizzaId: '',
       username: localStorage.getItem('username') || '',
       usernameInput: '',
       cartId: localStorage.getItem('cartId') || '',
@@ -27,6 +28,7 @@ document.addEventListener('alpine:init', () => {
 
       logout() {
           if (confirm("Do you want to logout?")) {
+              localStorage.removeItem(`${this.username}_historicalOrders`);
               this.username = '';
               this.cartId = '';
               localStorage.removeItem('username');
@@ -90,7 +92,7 @@ document.addEventListener('alpine:init', () => {
                   id: new Date().getTime(),
                   date: new Date().toLocaleString(),
                   total: this.cartTotal,
-                  pizzas: [...this.cartPizzas],
+                  pizzas: this.cartPizzas.map(pizza => ({ ...pizza }))
               };
               this.saveOrderToLocalStorage(order);
 
@@ -99,7 +101,7 @@ document.addEventListener('alpine:init', () => {
                   this.cartTotal = 0.00;
                   this.showCheckout = false;
                   this.message = '';
-              }, 4000);
+              }, 5000);
 
           } else {
               this.message = 'Insufficient payment amount.';
@@ -153,6 +155,17 @@ document.addEventListener('alpine:init', () => {
               this.getFeaturedPizzas();
           });
       },
+      addFeaturedPizza() {
+          if (this.featuredPizzaId) {
+              this.setFeaturedPizza(this.featuredPizzaId).then(() => {
+                  this.featuredPizzaId = ''; // Clear input field after adding
+              }).catch(error => {
+                  console.error("Error adding featured pizza:", error);
+              });
+          } else {
+              alert("Please enter a pizza ID.");
+          }
+      },
 
       toggleOrders() {
           this.showOrders = !this.showOrders;
@@ -162,13 +175,15 @@ document.addEventListener('alpine:init', () => {
       },
 
       saveOrderToLocalStorage(order) {
-          let orders = JSON.parse(localStorage.getItem('historicalOrders')) || [];
+          let ordersKey = `${this.username}_historicalOrders`;
+          let orders = JSON.parse(localStorage.getItem(ordersKey)) || [];
           orders.push(order);
-          localStorage.setItem('historicalOrders', JSON.stringify(orders));
+          localStorage.setItem(ordersKey, JSON.stringify(orders));
       },
 
       getHistoricalOrders() {
-          this.historicalOrders = JSON.parse(localStorage.getItem('historicalOrders')) || [];
+          let ordersKey = `${this.username}_historicalOrders`;
+          this.historicalOrders = JSON.parse(localStorage.getItem(ordersKey)) || [];
       },
 
       addPizzaToCart(pizzaId) {
